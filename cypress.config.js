@@ -1,4 +1,4 @@
-const { defineConfig } = require('cypress');
+const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
@@ -6,8 +6,15 @@ module.exports = defineConfig({
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
       // eslint-disable-next-line global-require
-      return require('./cypress/plugins/index.js')(on, config);
+      return require("./cypress/plugins/index.js")(on, config);
     },
-    baseUrl: 'http://localhost:3020',
+    baseUrl: "http://localhost:3020",
+  },
+
+  component: {
+    devServer: {
+      framework: "react",
+      bundler: "webpack",
+    },
   },
 });

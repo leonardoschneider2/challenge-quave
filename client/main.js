@@ -2,7 +2,14 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 import { App } from '../ui/App';
+import { Provider } from './context/Provider';
 
 Meteor.startup(() => {
-  render(<App />, document.getElementById('app'));
+  // I've change to insert in App ContextAPI from React
+  render(
+    <Provider>
+      <App />
+    </Provider>,
+    document.getElementById('app')
+  );
 });
